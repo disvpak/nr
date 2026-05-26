@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퍼포먼스 마케터 포트폴리오</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    
+    <style>
+        /* 1. 기본 초기화 및 폰트 설정 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #1e293b;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* 2. 레이아웃 구조 공통 */
+        .container {
+            padding: 100px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #0f172a;
+        }
+
+        /* 3. 헤더 (네비게이션) */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 50px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            color: #1d4ed8;
+        }
+
+        nav a {
+            margin-left: 30px;
+            font-size: 0.95rem;
+            color: #64748b;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #1d4ed8;
+        }
+
+        /* 4. 히어로 섹션 */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #f0f5ff 0%, #ffffff 100%);
+        }
+
+        .badge {
+            background: rgba(29, 78, 216, 0.08);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #1d4ed8;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+            color: #0f172a;
+        }
+
+        .highlight {
+            background: linear-gradient(to right, #2563eb, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #475569;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            word-break: keep-all;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #1d4ed8;
+            color: #ffffff;
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 4px 14px rgba(29, 78, 216, 0.2);
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background-color: #1e40af;
+            box-shadow: 0 6px 20px rgba(29, 78, 216, 0.3);
+        }
+
+        /* 5. 소개 섹션 */
+        .about-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .profile-container {
+            flex-shrink: 0;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #ffffff;
+            box-shadow: 0 10px 25px rgba(29, 78, 216, 0.15);
+            /* 이미지가 안 뜰 때 임시 배경색 제거 및 투명화 */
+            background-color: transparent;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            color: #334155;
+            line-height: 1.8;
+            word-break: keep-all;
+        }
+
+        /* 6. 스킬 섹션 */
+        .skill-section {
+            background-color: #f8fafc;
+            width: 100%;
+            padding: 100px 0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #1e3a8a;
+        }
+
+        .card p {
+            color: #475569;
+            font-size: 1.05rem;
+        }
+
+        /* 7. 푸터 */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            background-color: #ffffff;
+        }
+
+        /* 8. 반응형 모바일 디자인 */
+        @media (max-width: 768px) {
+            header {
+                padding: 20px;
+            }
+            nav a {
+                margin-left: 15px;
+                font-size: 0.85rem;
+            }
+            .hero h1 { 
+                font-size: 2.2rem; 
+            }
+            .hero p { 
+                font-size: 1.05rem; 
+            }
+            .about-wrapper {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .profile-container {
+                width: 200px;
+                height: 200px;
+            }
+            .grid { 
+                grid-template-columns: 1fr; 
+            }
+            .container {
+                padding: 60px 20px;
+            }
+            .skill-section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">PORTFOLIO</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">Performance Marketer</span>
+            <h1>디자이너의 눈으로 분석하는<br><span class="highlight">퍼포먼스 마케터</span></h1>
+            <p>콘텐츠 제작부터 SEO·GA 데이터 검증까지, 성과를 시각화합니다.</p>
+            <a href="#about" class="btn">더 알아보기</a>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <h2>About Me</h2>
+        <div class="about-wrapper">
+            <div class="profile-container">
+                <img src="강이안-a-신분증.jpg" alt="프로필 사진" class="profile-img">
+            </div>
+            <p class="intro-text">
+                콘텐츠의 시각적 매력과 데이터의 냉철한 분석을 하나로 연결합니다. 어도비 툴을 활용한 감각적인 비주얼 제작 역량은 물론, 구글 애널리틱스(GA) 데이터와 검색엔진 최적화(SEO)를 결합하여 '수치로 증명하고 시각적으로 압도하는' 성과 중심의 마케팅을 지향합니다.
+            </p>
+        </div>
+    </section>
+
+    <div id="skills" class="skill-section">
+        <section class="container" style="padding-top:0; padding-bottom:0;">
+            <h2>Core Skills</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Design & Video</h3>
+                    <p>Adobe Premiere, After Effects, Photoshop, Illustrator, Web Design 기초</p>
+                </div>
+                <div class="card">
+                    <h3>Data & Marketing</h3>
+                    <p>Google Analytics (GA4) 활용 데이터 분석, Search Engine Optimization (SEO) 검색 최적화</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 퍼포먼스 마케터 포트폴리오. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
